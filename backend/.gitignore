@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+venv/
+.env
+.env.*  # Por si usas .env.dev, .env.prod, etc.
+
+# IDEs y editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*.bak
+
+# Archivos de logs y depuración
+*.log
+*.tmp
+*.pid
+
+# Base de datos temporal o archivos locales
+*.sqlite3
+
+# Pytest
+.pytest_cache/
+.coverage
+htmlcov/
+
+# MyPy
+.mypy_cache/
+
+# Docker
+*.tar
+*.db
+*.sock
+.docker/
+docker-compose.override.yml
+
+# FastAPI / Uvicorn
+instance/
+*.db
+*.pid
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
