@@ -11,7 +11,8 @@ Fecha: 2025-06-11
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.core import settings, logger
-#from app.interfaces.http.api.v1.api_router import router as api_router
+from app.interfaces.http.api.v1 import api_v1_router
+from app.core.exception_handlers import register_exception_handlers
 
 
 def create_application() -> FastAPI:
@@ -33,7 +34,10 @@ def create_application() -> FastAPI:
     )
 
     # Registro de rutas
-    #app.include_router(api_router, prefix="/api/v1")
+    app.include_router(api_v1_router, prefix="/api/v1")
+
+    #Registar controlador de excepciones global
+    register_exception_handlers(app)
 
     logger.info(f"{settings.APP_NAME} cargada con éxito.")
     return app
