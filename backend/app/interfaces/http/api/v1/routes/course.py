@@ -1,3 +1,13 @@
+"""
+Rutas HTTP para la gestión de cursos
+
+Define los endpoints REST para crear, actualizar, eliminar y consultar
+cursos.
+
+Autor: Henry Jiménez
+Fecha: 2025-06-11
+"""
+
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from typing import List

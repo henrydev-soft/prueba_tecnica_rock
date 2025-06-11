@@ -21,7 +21,7 @@ Fecha: 2025-06-11
 """
 
 from typing import List, Optional
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel, field_validator, ConfigDict
 
 from .lesson import LessonRead
 
@@ -88,9 +88,9 @@ class CourseUpdate(BaseModel):
 class CourseRead(CourseBase):
     id: int
     
-    model_config = {
-        "from_attributes": True
-    }
+    model_config = ConfigDict(from_attributes=True)
 
 class CourseWithLessons(CourseRead):
     lessons: List[LessonRead] = []
+
+    model_config = ConfigDict(from_attributes=True)
