@@ -32,9 +32,9 @@ class Settings(BaseSettings):
         if os.getenv("PYTEST_CURRENT_TEST"):
             db_name = os.getenv("TEST_POSTGRES_DB", self.POSTGRES_DB + "_test")
 
-        password_escaped = quote_plus(self.POSTGRES_PASSWORD)
+        
         return (
-            f"postgresql+psycopg2://{self.POSTGRES_USER}:{password_escaped}"
+            f"postgresql+psycopg2://{self.POSTGRES_USER}:{self.POSTGRES_PASSWORD}"
             f"@{self.POSTGRES_SERVER}:{self.POSTGRES_PORT}/{db_name}"
         )
 
