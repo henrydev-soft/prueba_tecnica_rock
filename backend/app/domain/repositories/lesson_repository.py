@@ -11,22 +11,22 @@ Fecha: 2025-06-11
 
 from abc import ABC, abstractmethod
 from typing import Optional
-from app.infrastructure.db.models.lesson_model import LessonModel
+from app.domain.models import Lesson
 
 
 class ILessonRepository(ABC):
     @abstractmethod
-    def get_by_id(self, lesson_id: int) -> Optional[LessonModel]:
+    def get_by_id(self, lesson_id: int) -> Optional[Lesson]:
         pass
 
     @abstractmethod
-    def create(self, lesson: LessonModel) -> LessonModel:
+    def create(self, lesson: Lesson) -> Lesson:
         pass
 
     @abstractmethod
-    def update(self, lesson: LessonModel) -> LessonModel:
+    def update(self, lesson: Lesson) -> Lesson:
         pass
 
     @abstractmethod
-    def delete(self, lesson: LessonModel) -> None:
+    def delete(self, lesson: Lesson) -> None:
         pass

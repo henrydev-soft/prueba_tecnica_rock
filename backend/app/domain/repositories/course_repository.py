@@ -13,7 +13,7 @@ Fecha: 2025-06-11
 
 from abc import ABC, abstractmethod
 from typing import List
-from app.infrastructure.db.models import CourseModel
+from app.domain.models import Course
 
 
 class ICourseRepository(ABC):
@@ -22,26 +22,26 @@ class ICourseRepository(ABC):
     """
 
     @abstractmethod
-    def get_all(self) -> List[CourseModel]:
+    def get_all(self) -> List[Course]:
         """Devuelve todos los cursos existentes."""
         pass
 
     @abstractmethod
-    def get_by_id(self, course_id: int) -> CourseModel | None:
+    def get_by_id(self, course_id: int) -> Course | None:
         """Devuelve un curso por ID o None si no existe."""
         pass
 
     @abstractmethod
-    def create(self, course: CourseModel) -> CourseModel:
+    def create(self, course: Course) -> Course:
         """Guarda un nuevo curso en la base de datos."""
         pass
 
     @abstractmethod
-    def update(self, course: CourseModel) -> CourseModel:
+    def update(self, course: Course) -> Course:
         """Actualiza un curso existente."""
         pass
 
     @abstractmethod
-    def delete(self, course: CourseModel) -> None:
+    def delete(self, course: Course) -> None:
         """Elimina un curso existente."""
         pass

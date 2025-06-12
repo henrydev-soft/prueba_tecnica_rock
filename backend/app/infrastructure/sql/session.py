@@ -22,7 +22,7 @@ from sqlalchemy.orm import sessionmaker
 from app.core.config import get_settings
 
 # Importar Base centralizada
-from app.infrastructure.db import Base  
+from app.infrastructure.sql import Base  
 from app.core import logger
 
 settings = get_settings()

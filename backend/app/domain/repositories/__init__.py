@@ -17,7 +17,7 @@ Autor: Henry Jiménez
 Fecha: 2025-06-11
 """
 
-from .course_repo import ICourseRepository
-from .lesson_repo import ILessonRepository
+from .course_repository import ICourseRepository
+from .lesson_repository import ILessonRepository
 
 __all__ = ["ICourseRepository", "ILessonRepository"]

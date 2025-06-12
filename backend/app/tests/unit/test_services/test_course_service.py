@@ -12,7 +12,7 @@ Fecha: 2025-06-11
 """
 
 from app.application.services import CourseService
-from app.infrastructure.db.models import CourseModel
+from app.infrastructure.sql.models import CourseModel
 from app.application.dtos.course import CourseCreate
 from unittest.mock import MagicMock
 import pytest

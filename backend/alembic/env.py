@@ -12,8 +12,8 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'a
 
 #Importa config y Base
 from app.core.config import get_settings
-from app.infrastructure.db.base import Base  # importa la instancia de declarative_base()
-from app.infrastructure.db.models import course_model, lesson_model  # importa modelos
+from app.infrastructure.sql.base import Base  # importa la instancia de declarative_base()
+from app.infrastructure.sql.models import course_model, lesson_model  # importa modelos
 
 # Configura logging
 fileConfig(context.config.config_file_name)

@@ -16,9 +16,12 @@ Autor: Henry Jiménez
 Fecha: 2025-06-11
 """
 
+from dataclasses import dataclass
+from typing import Optional
+
+@dataclass
 class Lesson: 
-    def __init__(self, id: int, title: str, video_url: str, course_id: int):
-        self.id = id
-        self.title = title
-        self.video_url = video_url
-        self.course_id = course_id
+    title:str
+    video_url: str
+    course_id: int
+    id:Optional[int]

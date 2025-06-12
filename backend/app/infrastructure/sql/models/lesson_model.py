@@ -10,7 +10,7 @@ Fecha: 2025-06-11
 
 from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
-from app.infrastructure.db.base import Base
+from app.infrastructure.sql import Base
 
 class LessonModel(Base):
     __tablename__ = "lessons"

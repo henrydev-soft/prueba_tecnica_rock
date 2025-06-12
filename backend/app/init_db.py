@@ -19,9 +19,9 @@ from alembic import command
 from sqlalchemy.orm import Session
 
 from app.core.config import get_settings
-from app.infrastructure.db.session import SessionLocal
+from app.infrastructure.sql.session import SessionLocal
 #from app.domain.models import Course
-from app.infrastructure.db.models import CourseModel, LessonModel
+from app.infrastructure.sql.models import CourseModel, LessonModel
 from app.core.logger import logger
 
 

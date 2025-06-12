@@ -9,7 +9,7 @@ Fecha: 2025-06-11
 """
 
 from typing import Generator
-from app.infrastructure.db.session import SessionLocal
+from app.infrastructure.sql import SessionLocal
 
 
 def get_db() -> Generator:

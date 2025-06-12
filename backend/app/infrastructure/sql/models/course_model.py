@@ -10,7 +10,7 @@ Fecha: 2025-06-11
 
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.orm import relationship
-from app.infrastructure.db.base import Base
+from app.infrastructure.sql import Base
 
 class CourseModel(Base):
     __tablename__ = "courses"

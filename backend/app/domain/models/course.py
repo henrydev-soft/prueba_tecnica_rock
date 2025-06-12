@@ -15,13 +15,15 @@ Responsabilidades:
 Autor: Henry Jiménez
 Fecha: 2025-06-11
 """
-from typing import List
+
+from dataclasses import dataclass, field
+from typing import List, Optional
 from .lesson import Lesson
 
+@dataclass
 class Course:
-    def __init__(self, id: int, title: str, description: str, instructor: str, lessons: List[Lesson] = []):
-        self.id = id
-        self.title = title
-        self.description = description
-        self.instructor = instructor
-        self.lessons = lessons
+    title:str
+    description: str
+    instructor: str
+    lessons: Optional[List[Lesson]] = field(default_factory=list)
+    id: Optional[int] = None

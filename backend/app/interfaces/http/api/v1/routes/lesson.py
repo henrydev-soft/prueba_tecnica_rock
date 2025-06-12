@@ -11,8 +11,8 @@ Fecha: 2025-06-11
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.orm import Session
 from app.interfaces.http.api.v1.deps import get_db
-from app.infrastructure.repositories import LessonRepository
-from app.infrastructure.repositories import CourseRepository
+from app.infrastructure.sql.repositories import SQLLessonRepository
+from app.infrastructure.sql.repositories import SQLCourseRepository
 from app.application.services import LessonService
 from app.application.dtos import LessonCreate, LessonUpdate, LessonRead
 
@@ -20,9 +20,9 @@ router = APIRouter(prefix="", tags=["Lessons"])
 
 
 def get_lesson_service(db: Session = Depends(get_db)) -> LessonService:
-    lesson_repo = LessonRepository(db)
-    course_repo = CourseRepository(db)
-    return LessonService(lesson_repo, course_repo)
+    lesson_repository = SQLLessonRepository(db)
+    course_repository = SQLCourseRepository(db)
+    return LessonService(lesson_repository, course_repository)
 
 
 @router.post("/courses/{course_id}/lessons/", response_model=LessonRead, status_code=status.HTTP_201_CREATED)
