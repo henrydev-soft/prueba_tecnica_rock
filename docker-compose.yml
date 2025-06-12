@@ -12,21 +12,33 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      - backend_network
 
-  # app:
-  #   build:
-  #     context: ./backend
-  #     dockerfile: Dockerfile
-  #   container_name: fastapi_app
-  #   restart: always
-  #   volumes:
-  #     - ./backend/app:/app
-  #   ports:
-  #     - "8000:8000"
-  #   depends_on:
-  #     - db
-  #   env_file:
-  #     - ./backend/app/.env
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: fastapi_app
+    command: >
+      bash -c "until nc -z db 5432; do echo 'Esperando DB...'; sleep 1; done &&
+              PYTHONPATH=. python app/init_db.py &&
+              uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload"
+    restart: always
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - RUNNING_IN_DOCKER=true
+    env_file:
+      - .env
+    networks:
+      - backend_network
 
 volumes:
   postgres_data:
+
+networks:
+  backend_network:
+    driver: bridge

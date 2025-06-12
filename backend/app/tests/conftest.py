@@ -22,7 +22,6 @@ from alembic.config import Config
 from alembic import command
 from app.core.logger import logger
 from app.core.config import get_settings
-from urllib.parse import quote_plus
 
 # Cargar configuración desde .env
 os.environ["PYTEST_CURRENT_TEST"] = "true"

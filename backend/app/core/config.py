@@ -12,6 +12,18 @@ from urllib.parse import quote_plus
 from typing import Optional
 
 
+def get_env_file_path() -> Optional[Path]:
+    """
+    Retorna la ruta del archivo .env si no se está en Docker.
+    Si se detecta que estamos dentro de Docker (por una variable), retorna None.
+    """
+    if os.getenv("RUNNING_IN_DOCKER") == "true":
+        return None  # No cargar archivo .env
+    # En local: buscar el .env en la raíz del proyecto
+    return Path(__file__).resolve().parents[3] / ".env"
+
+env_path = get_env_file_path()
+
 class Settings(BaseSettings):
     APP_NAME: str = "Course Manager"
     ENVIRONMENT: str = "development"
@@ -39,9 +51,9 @@ class Settings(BaseSettings):
         )
 
     model_config = ConfigDict(
-            env_file=Path(__file__).resolve().parents[3] / ".env",
-            env_file_encoding="utf-8"
-        )
+        env_file=str(env_path) if env_path and env_path.exists() else None,
+        env_file_encoding="utf-8"
+    )
 
 #Función que agregar el cache de la instancia para evitar múltiples lecturas del archivo .env
 @lru_cache
