@@ -53,15 +53,16 @@ POSTGRES_SERVER=db
 POSTGRES_PORT=5432
 POSTGRES_DB=courses_db
 TEST_POSTGRES_DB=courses_db_test
-VITE_API_BASE_URL=http://localhost:8000/api/v1
+VITE_API_BASE_URL=http://localhost:8000/api/v1 
 ```
-**Nota**: Si se requiere agilidad en este proceso se puede cambiar el nombre del archivo `.env.example` -> `.env` para despliegue rápido en pruebas.
+**Nota**: Si se requiere agilidad en este proceso se puede cambiar el nombre del archivo `.env.example` -> `.env` 
+para despliegue rápido en pruebas locales, por buena práctica no se deja el archivo `.env` para que por error no sea usado en producción.
 
 
 3. **Levanta los contenedores**:
 
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 4. **Accede a la Aplicación**:
@@ -123,16 +124,6 @@ pytest --cov=app
 ---
 
 ## 🏗️ Estructura del Proyecto
-
-```
-backend/
-├──
-├── application/         # Servicios de negocio
-├── domain/              # Entidades y puertos
-├── infrastructure/      # Adaptadores (repositorios, DB, etc.)
-├── interfaces/          # HTTP API (FastAPI routers)
-└── tests/               # Unitarios y de integración
-```
 
 ```
 .
