@@ -37,7 +37,7 @@ def test_create_and_get_lesson(client):
     lesson_id = lesson_data["id"]
 
     # Paso 3: Consultar la lección por ID
-    get_response = client.get(f"/api/v1/lessons/{lesson_id}")
+    get_response = client.get(f"/api/v1/courses/{course_id}/lessons/{lesson_id}")
     assert get_response.status_code == 200
     get_data = get_response.json()
 
