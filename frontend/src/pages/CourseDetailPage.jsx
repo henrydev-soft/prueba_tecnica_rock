@@ -22,7 +22,7 @@ function CourseDetailsPage() {
   const [editingLesson, setEditingLesson] = useState(null);
   const { addNotification } = useNotification();
 
-  // Mueve la definición de fetchCourseDetails aquí, fuera del useEffect
+
   const fetchCourseDetails = async () => {
     try {
       setLoading(true);
@@ -38,9 +38,9 @@ function CourseDetailsPage() {
 
   useEffect(() => {
     if (courseId) {
-      fetchCourseDetails(); // Llama a la función que ahora está definida arriba
+      fetchCourseDetails();
     }
-  }, [courseId]); // La dependencia de courseId sigue siendo necesaria
+  }, [courseId]); 
 
   const handleEditCourse = () => {
     navigate(`/courses/${course.id}/edit`); // Redirige a la página de edición

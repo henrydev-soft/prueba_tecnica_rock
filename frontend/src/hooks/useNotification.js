@@ -1,6 +1,6 @@
 
 import { useContext } from 'react';
-import { NotificationContext } from '../context/NotificationContext'; // Asegúrate de importar el contexto aquí
+import { NotificationContext } from '../context/NotificationContext';
 
 /**
  * Hook personalizado para acceder a las funciones de notificación.

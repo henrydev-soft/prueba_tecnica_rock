@@ -36,6 +36,7 @@ class Settings(BaseSettings):
     POSTGRES_PORT: str
     POSTGRES_DB: str
     TEST_POSTGRES_DB: Optional[str] = None
+    VITE_API_BASE_URL: Optional[str] = None
 
     #Propiedad que construye la URL de conexión a PostgreSQL
     @property

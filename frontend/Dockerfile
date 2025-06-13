@@ -1,6 +1,9 @@
 # Se una una imágen Nodejs para hacer el Build de la applicación
 FROM node:22-alpine as build
 
+# Declarar el argumento de construcción
+ARG VITE_API_BASE_URL
+
 # Establecer el directorio de trabajo
 WORKDIR /app
 

@@ -3,7 +3,7 @@
 */
 
 import { useEffect, useState } from 'react';
-import { MdCheckCircle, MdError, MdInfo, MdClose } from 'react-icons/md'; // Necesitarás instalar react-icons
+import { MdCheckCircle, MdError, MdInfo, MdClose } from 'react-icons/md';
 
 // Colores y iconos basados en el tipo de notificación
 const notificationStyles = {

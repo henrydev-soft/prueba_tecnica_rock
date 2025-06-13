@@ -1,6 +1,6 @@
 # 📚 Proyecto de Gestión de Cursos (Prueba Técnica)
 
-Aplicativo para la gestión de cursos y lecciones, este proyeto hace parte de la prueba técnica presentada para la vacante de FullStack Developer.
+Aplicativo para la gestión de cursos y lecciones, este proyecto hace parte de la prueba técnica presentada para la vacante de FullStack Developer.
 
 ## 🚀 Descripción del Proyecto
 
@@ -16,13 +16,13 @@ Se utilizó Docker Compose para orquestar los servicios, facilitando el desplieg
     - **Domain**: define las entidades y reglas del negocio.
     - **Application**: contiene los casos de uso y la lógica de aplicación. 
     - **Infrastructure**: implementa Adaptadores Secundarios (Bases de Datos, ORM)
-    - **Interfaces**: implementa Adapatadores Primarios (Interfaces de Entrada/Salida - HTTP, CLI, Etc..)
+    - **Interfaces**: implementa Adaptadores Primarios (Interfaces de Entrada/Salida - HTTP, CLI, Etc..)
 - **Frontend Atomic Design**: Se adoptó el enfoque de Atomic Design en el frontend para promover la reutilización de componentes, mejorar la escalabilidad y mantener una estructura clara, coherente y fácil de mantener en aplicaciones React.
 - **Principios SOLID**: cada componente tiene una responsabilidad única, facilitando su testeo y mantenimiento.
 - **Clean Code**: se prioriza la legibilidad, consistencia en nombres y estructuras autocontenidas.
 - **FastAPI**: framework moderno, tipado y con documentación OpenAPI automática.
 - **SQLAlchemy + Alembic**: ORM robusto para interactuar con PostgreSQL y controlar migraciones.
-- **React**: Se eligió como biblioteca principal para el frontend debido a su rendimiento eficiente, su amplio ecosistema y la facilidad que ofrece para construir interfaces dinámicas y reutilizables. 
+- **React**: Se eligió biblioteca principal para el frontend debido a su rendimiento eficiente, su amplio ecosistema y la facilidad que ofrece para construir interfaces dinámicas y reutilizables. 
 - **Tailwind CSS**: Se eligió por su eficiencia al construir interfaces modernas de forma rápida, reutilizable y con un alto grado de personalización sin necesidad de escribir CSS desde cero.
 - **Testing completo**:
   - **Unitarios** (mockeando repositorios).
@@ -48,28 +48,37 @@ APP_NAME=Course Manager
 ENVIRONMENT=development
 DEBUG=True
 POSTGRES_USER=postgres
-POSTGRES_PASSWORD=superpassword
+POSTGRES_PASSWORD=postgres
 POSTGRES_SERVER=db
 POSTGRES_PORT=5432
 POSTGRES_DB=courses_db
 TEST_POSTGRES_DB=courses_db_test
-VITE_API_BASE_URL=http://localhost:8000/api/v1 
+#Importante cambiar si el despliegue no es en localhost
+VITE_API_BASE_URL=http://localhost:8000/api/v1
 ```
 **Nota**: Si se requiere agilidad en este proceso se puede cambiar el nombre del archivo `.env.example` -> `.env` 
-para despliegue rápido en pruebas locales, por buena práctica no se deja el archivo `.env` para que por error no sea usado en producción.
+para despliegue rápido en pruebas locales, por buenas prácticas no se deja el archivo `.env` en el repositorio 
+ya que por error podría ser usado en producción con credenciales no seguras.
 
 
 3. **Levanta los contenedores**:
 
 ```bash
+#Si tienes docker compose (Version 2)
+docker compose up --build -d
+#Si tienes docker-compose (Version 1)
 docker-compose up --build -d
 ```
 
 4. **Accede a la Aplicación**:
 
+La url puede cambiar dependiendo del servidor de despliegue, estos serían los ejemplos para localhost.
+
 - Frontend: [http://localhost:3000](http://localhost:3000) 
 - Documentación Swagger: [http://localhost:8000/docs](http://localhost:8000/docs)
 - Redoc: [http://localhost:8000/redoc](http://localhost:8000/redoc)
+
+**Nota**: El servidor no almacena ni procesa imágenes de los cursos, este comportamiento para efectos de la prueba se logró usando un servicio de terceros:  [https://picsum.photos/](https://picsum.photos/) 
 
 ---
 
@@ -118,7 +127,7 @@ docker-compose up --build -d
 # Ejecutar tests si se conserva el nombre del contenedor backend fastapi_app
 docker exec -it fastapi_app pytest -v
 # Ejecutar tests en la consola del contenedor backend
-pytest --cov=app
+pytest -v
 ```
 
 ---
@@ -151,3 +160,11 @@ pytest --cov=app
 ```
 
 ---
+
+
+---
+
+## 🧠 Autor
+
+**Henry Jiménez**  
+_Software Engineer & FullStack Developer_

@@ -7,9 +7,6 @@ Autor: Henry Jiménez
 Fecha: 2025-06-11
 """
 
-from fastapi import HTTPException, status
-
-
 class AppException(Exception):
     """Clase base para excepciones controladas de la aplicación."""
     def __init__(self, detail: str, status_code: int = 400):

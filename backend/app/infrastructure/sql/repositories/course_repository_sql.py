@@ -1,3 +1,13 @@
+"""
+Implementación del repositorio de cursos con SQLAlchemy
+
+Este módulo implementa la interfaz ICourseRepository utilizando SQLAlchemy
+para realizar operaciones de persistencia sobre la entidad Course.
+
+Autor: Henry Jiménez
+Fecha: 2025-06-11
+"""
+
 from sqlalchemy.orm import Session
 from app.domain.models.course import Course, Lesson
 from app.domain.repositories import ICourseRepository

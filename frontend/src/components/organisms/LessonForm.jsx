@@ -27,7 +27,7 @@ const LessonForm = ({ initialData, onSubmit, onCancel, formTitle }) => {
     const newErrors = {};
     if (!title.trim()) newErrors.title = 'El título de la lección es requerido.';
 
-    // alidación más estricta para URLs 
+    // Validación más estricta para URLs 
     const validGoogleusercontentPattern = /^(https?:\/\/)?(www\.)?(youtube\.com\/watch\?v=|youtu\.be\/)[\w\-]{11}(\?.*)?$/;
 
     if (!videoUrl.trim()) {
@@ -62,7 +62,7 @@ const LessonForm = ({ initialData, onSubmit, onCancel, formTitle }) => {
         </FormField>
 
         <FormField label="URL del Video (YouTube)" htmlFor="video-url" error={errors.videoUrl}>
-          <Input // Usamos Input, ya que la URL de video suele ser de una sola línea
+          <Input // Se hace uso de Input, ya que la URL de video suele ser de una sola línea
             id="video-url"
             type="url" // Tipo url para validación básica del navegador
             placeholder="Ej. https://www.youtube.com/watch?v=..."
