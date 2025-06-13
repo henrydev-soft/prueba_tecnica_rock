@@ -37,8 +37,8 @@ Se utilizó Docker Compose para orquestar los servicios, facilitando el desplieg
 1. **Clona el repositorio**:
 
 ```bash
-git clone https://github.com/tuusuario/course-manager.git
-cd course-manager
+git clone https://github.com/henrydev-soft/prueba_tecnica_rock.git
+cd prueba_tecnica_rock
 ```
 
 2. **Crea el archivo `.env` con tus variables** (basado en `.env.example`):
@@ -55,6 +55,8 @@ POSTGRES_DB=courses_db
 TEST_POSTGRES_DB=courses_db_test
 VITE_API_BASE_URL=http://localhost:8000/api/v1
 ```
+**Nota**: Si se requiere agilidad en este proceso se puede cambiar el nombre del archivo `.env.example` -> `.env` para despliegue rápido en pruebas.
+
 
 3. **Levanta los contenedores**:
 
@@ -123,12 +125,38 @@ pytest --cov=app
 ## 🏗️ Estructura del Proyecto
 
 ```
-app/
+backend/
+├──
 ├── application/         # Servicios de negocio
 ├── domain/              # Entidades y puertos
 ├── infrastructure/      # Adaptadores (repositorios, DB, etc.)
 ├── interfaces/          # HTTP API (FastAPI routers)
 └── tests/               # Unitarios y de integración
+```
+
+```
+.
+├── backend
+│   └── app
+│       ├── core/            # Configuración, logging, seguridad
+│       ├── domain/          # Modelos de dominio y contratos de repositorio
+│       ├── infrastructure/  # Implementaciones concretas (SQL) y acceso a datos
+│       ├── application/     # Lógica de negocio (servicios y DTOs)
+│       ├── interfaces/      # Entradas/salidas del sistema (API HTTP)
+│       └── tests/           # Pruebas unitarias e integración
+└── frontend
+    └── src
+        ├── api/             # Configuración de llamadas HTTP
+        ├── assets/          # Recursos estáticos
+        ├── components/      # Componentes UI (Atomic Design)
+        │   ├── atoms/
+        │   ├── molecules/
+        │   └── organisms/
+        ├── context/         # Manejo de estado global
+        ├── hooks/           # Hooks personalizados
+        ├── layouts/         # Layouts generales
+        ├── pages/           # Vistas principales del sistema
+        └── services/        # Comunicación con la API backend
 ```
 
 ---
