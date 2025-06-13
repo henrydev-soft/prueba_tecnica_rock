@@ -19,8 +19,7 @@ RUN apt-get update && apt-get install -y netcat-openbsd
 # Copia el resto del código
 COPY . .
 
-
-
+# Exponer internamente el puerto del contenedor para la aplicación
 EXPOSE 8000
 
 # Comando por defecto
